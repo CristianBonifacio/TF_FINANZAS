@@ -86,5 +86,20 @@ public class UsersController {
     }
 
 
+    @GetMapping(value = "/{email}/{password}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<users> findUsersByEmailAndPassword(@PathVariable("email") String email, @PathVariable("password") String password){
+        try{
+            users users = usersService.findByEmailAndPassword(email, password);
+            if(users != null)
+                return new ResponseEntity<>(users, HttpStatus.OK);
+            else
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+
+
 
 }

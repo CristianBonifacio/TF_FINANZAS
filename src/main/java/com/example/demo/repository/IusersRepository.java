@@ -9,4 +9,5 @@ public interface IusersRepository  extends JpaRepository<users, Long>{
 
 
     users findByEmail(String email);
+    users findByEmailAndPassword(String email, String password);
 }

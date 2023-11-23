@@ -40,4 +40,8 @@ public  class IUserImplService implements IUserService {
         return iusersRepository.findById(id).orElseThrow(()->new Exception("El usuario no existe"));
     }
 
+    @Override
+    public users findByEmailAndPassword(String email, String password) {
+        return iusersRepository.findByEmailAndPassword(email, password);
+    }
 }

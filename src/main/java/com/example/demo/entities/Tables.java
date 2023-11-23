@@ -48,6 +48,9 @@ public class Tables {
     private String fechaConsulta;
     @Column (name = "N", nullable = false, length = 50)
     private float N;
+    @Column (name = "studentId", nullable = false, length = 50)
+    private int studentId;
+
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "id_user", nullable = false)
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
